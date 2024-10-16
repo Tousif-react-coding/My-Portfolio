@@ -71,3 +71,54 @@ document.getElementById('scrollButton').addEventListener('click', function() {
       behavior: 'smooth'
   });
 });
+
+// search bar 
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('searchInput');
+  const suggestionsList = document.getElementById('suggestions');
+
+  // List of searchable sections with their respective links
+  const sections = [
+      { name: 'Home', link: '#home' },
+      { name: 'About', link: '#about' },
+      { name: 'Services', link: '#services' },
+      { name: 'Projects', link: '#projects' },
+      { name: 'Contact', link: '#contact' }
+  ];
+
+  // Function to filter and display suggestions
+  searchInput.addEventListener('input', function () {
+      const searchValue = searchInput.value.toLowerCase();
+      suggestionsList.innerHTML = '';
+
+      if (searchValue) {
+          const filteredSections = sections.filter(section => 
+              section.name.toLowerCase().includes(searchValue)
+          );
+
+          if (filteredSections.length > 0) {
+              filteredSections.forEach(section => {
+                  const li = document.createElement('li');
+                  li.textContent = section.name;
+                  li.addEventListener('click', function () {
+                      window.location.href = section.link;
+                      suggestionsList.style.display = 'none'; // Hide suggestions after click
+                  });
+                  suggestionsList.appendChild(li);
+              });
+              suggestionsList.style.display = 'block';
+          } else {
+              suggestionsList.style.display = 'none';
+          }
+      } else {
+          suggestionsList.style.display = 'none';
+      }
+  });
+
+  // Hide suggestions when clicking outside of the search input or suggestions
+  document.addEventListener('click', function (event) {
+      if (!searchInput.contains(event.target) && !suggestionsList.contains(event.target)) {
+          suggestionsList.style.display = 'none';
+      }
+  });
+});

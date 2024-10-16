@@ -10,10 +10,7 @@ body {
     font-style: normal;
 
 }
-h1{
-    text-align: center;
-    margin: 1rem;
-}
+
 /* General Navbar Styling */
 .navbar {
     display: flex;
@@ -30,6 +27,7 @@ h1{
 .navbar-logo {
     display: flex;
     align-items: center;
+    position: relative; /* Needed to position suggestions within the .navbar-logo */
 }
 
 .search-icon {
@@ -46,7 +44,36 @@ h1{
     background-color: #fff;
     color: #333;
     outline: none;
+    width: 200px; /* Adjust width as needed */
 }
+
+.suggestions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 200px; /* Match the width of the input field */
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute; /* Absolutely position relative to .navbar-logo */
+    top: 40px; /* Adjust to position below the search input */
+    left: 0;
+    z-index: 100; /* Ensure it appears above other elements */
+    border-radius: 3px;
+    display: none; /* Initially hidden */
+}
+
+.suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
 
 /* Hamburger Menu */
 .hamburger {
@@ -133,6 +160,9 @@ h1{
 #hamburger.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
+/* searchbar */
+
+
 
 /* hero-section */
 .bg {
@@ -170,6 +200,12 @@ h1{
     color: white;
     z-index: 1;
     text-align: center;
+}
+
+.hero-items h1{
+    color: #fff;
+    text-align: center;
+    margin: 1rem;
 }
 
 /* Animation */
@@ -245,8 +281,9 @@ h1{
         justify-content: center;
     }
     .para {
-        max-width: 100%;
-        margin: 2rem;
+        max-width: 90%;
+        margin: 0;
+       
     }
     .img img {
         height: 200px;
@@ -377,6 +414,9 @@ h1{
         width: 80%;
         margin-bottom: 1rem;
     }
+    .service-card h1{
+        margin-top: 2rem;
+    }
 }
 
 /* Mobile devices (Phones, 576px and down) */
@@ -386,7 +426,7 @@ h1{
         align-items: center;
     }
     .services-card {
-        width: 100%;
+        width: 80%;
         margin-bottom: 1rem;
     }
     .services-card .icon {
@@ -466,8 +506,9 @@ h1{
     margin: 0 auto;
   }
   
-  h2 {
+  h1 {
     text-align: center;
+    margin-top: 20px;
     margin-bottom: 20px;
     font-size: 28px;
     color: #333;
