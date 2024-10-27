@@ -21,7 +21,7 @@ body {
     color: #fff;
     position: relative;
     z-index: 1000;
-    max-height: 80px;
+    max-height: 65px;
 }
 
 /* Logo Section */
@@ -31,20 +31,15 @@ body {
     position: relative; 
 }
 .navbar-logo img {
-    width: 100px;
+    width: 80px;
     height: auto;
     border: 1px solid cyan;
     border-radius: 50%;
     border-left: 6px solid cyan ;
     border-right: 6px solid cyan ;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition on hover */
 }
 
-/* Hover Effect for Logo Image */
-.navbar-logo img:hover {
-    transform: scale(1.1); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
-}
+
 
 /* Responsive Logo Size */
 @media (max-width: 1024px) {
