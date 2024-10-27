@@ -21,59 +21,49 @@ body {
     color: #fff;
     position: relative;
     z-index: 1000;
+    max-height: 80px;
 }
 
 /* Logo Section */
 .navbar-logo {
     display: flex;
     align-items: center;
-    position: relative; /* Needed to position suggestions within the .navbar-logo */
+    position: relative; 
+}
+.navbar-logo img {
+    width: 100px;
+    height: auto;
+    border: 1px solid cyan;
+    border-radius: 50%;
+    border-left: 6px solid cyan ;
+    border-right: 6px solid cyan ;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition on hover */
 }
 
-.search-icon {
-    color: #fff;
-    margin-right: 10px;
-    font-size: 1.5rem;
+/* Hover Effect for Logo Image */
+.navbar-logo img:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
-.search-input {
-    padding: 5px 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: #fff;
-    color: #333;
-    outline: none;
-    width: 200px; /* Adjust width as needed */
+/* Responsive Logo Size */
+@media (max-width: 1024px) {
+    .navbar-logo img {
+        width: 80px; 
+    }
 }
 
-.suggestions {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    width: 200px; /* Match the width of the input field */
-    max-height: 150px;
-    overflow-y: auto;
-    position: absolute; /* Absolutely position relative to .navbar-logo */
-    top: 40px; /* Adjust to position below the search input */
-    left: 0;
-    z-index: 100; /* Ensure it appears above other elements */
-    border-radius: 3px;
-    display: none; /* Initially hidden */
+@media (max-width: 768px) {
+    .navbar-logo img {
+        width: 60px; 
+    }
 }
 
-.suggestions li {
-    padding: 10px;
-    cursor: pointer;
-    color: #333;
+@media (max-width: 480px) {
+    .navbar-logo img {
+        width: 50px; 
+    }
 }
-
-.suggestions li:hover {
-    background-color: #f0f0f0;
-}
-
 
 /* Hamburger Menu */
 .hamburger {
@@ -111,7 +101,7 @@ body {
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
     .search-input {
-        width: 100px; /* Reduced width for small screens */
+        width: 100px; 
     }
 
     /* Hide the search bar in smaller screens */
@@ -160,7 +150,6 @@ body {
 #hamburger.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
-/* searchbar */
 
 
 
@@ -595,15 +584,10 @@ form div textarea {
     border-radius: 5px;
     transition: border-color 0.3s;
     width: 100%; 
-    box-sizing: border-box; /* Prevents padding from affecting width */
+    box-sizing: border-box;
+       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.input-item input:focus,
-form div input:focus,
-form div textarea:focus {
-    border-color: #0239a5;
-    outline: none;
-}
 
 form div textarea {
     resize: none;
@@ -618,7 +602,7 @@ form div textarea {
     padding: 12px 24px;
     font-size: 1rem;
     color: #fff;
-    background-color: #007bff; /* Primary button color */
+    background-color: #007bff; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -628,12 +612,12 @@ form div textarea {
 }
 
 .button button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0056b3;
 }
 
 .button button:active {
-    transform: scale(0.98); /* Slight scale effect on click */
-    background-color: #004494; /* Darker shade when active */
+    transform: scale(0.98); 
+    background-color: #004494; 
 }
 
 /* Responsive styles */
@@ -729,12 +713,13 @@ form div textarea {
 }
 
 .social-links li a i {
-    margin-right: 8px; /* Space between icon and text */
+    margin-right: 8px; 
+    
     font-size: 1.5rem;
 }
 
 .social-links li a:hover {
-    color: #007bff; /* Color change on hover */
+    color: #007bff; 
 }
 
 /* Responsive Styles */
